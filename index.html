@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Reema ❤️</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial;
+  text-align: center;
+  background: black;
+  color: white;
+}
+
+/* شاشة كلمة السر */
+#login {
+  margin-top: 80px;
+}
+
+input {
+  padding: 12px;
+  width: 70%;
+  border-radius: 10px;
+  border: none;
+  font-size: 16px;
+}
+
+button {
+  padding: 12px 25px;
+  border-radius: 10px;
+  border: none;
+  background: #ff4d6d;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* الصفحة الرئيسية */
+#main {
+  display: none;
+  padding: 10px;
+}
+
+img {
+  width: 90%;
+  max-width: 300px;
+  border-radius: 20px;
+  margin: 10px 0;
+}
+
+video {
+  width: 90%;
+  max-width: 300px;
+  border-radius: 15px;
+}
+
+/* القلوب */
+.heart {
+  position: fixed;
+  color: red;
+  animation: float 5s linear infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(100vh); }
+  100% { transform: translateY(-10vh); }
+}
+
+h1 {
+  color: #ff4d6d;
+}
+</style>
+
+</head>
+<body>
+
+<!-- 🔐 كلمة السر -->
+<div id="login">
+  <h2>أدخلي كلمة السر يا ريما ❤️</h2>
+  <input type="password" id="pass" placeholder="كلمة السر">
+  <br><br>
+  <button onclick="checkPass()">دخول 💌</button>
+</div>
+
+<!-- 💖 المحتوى -->
+<div id="main">
+
+<h1>ريما ❤️</h1>
+
+<p>
+من يوم 20/3/2026… حياتي بقت أحلى بيك 💕
+</p>
+
+<img src="photo1.jpg">
+<img src="photo2.jpg">
+
+<p>
+بحبك شديد… وما دايرك تكوني إلا معاي 😍
+</p>
+
+<!-- 🎶 الأغنية -->
+<audio id="music" loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<!-- 🎥 فيديو -->
+<br>
+<video controls>
+  <source src="video.mp4" type="video/mp4">
+</video>
+
+<!-- ⏳ العداد -->
+<h2 id="counter"></h2>
+
+<p id="message"></p>
+
+</div>
+
+<script>
+
+// 🔐 كلمة السر
+function checkPass() {
+  var pass = document.getElementById("pass").value;
+
+  if(pass === "reema2026") {
+    document.getElementById("login").style.display = "none";
+    document.getElementById("main").style.display = "block";
+    document.getElementById("music").play();
+    startHearts();
+  } else {
+    alert("غلط 😏");
+  }
+}
+
+// ⏳ العداد
+var startDate = new Date("March 20, 2026");
+
+function updateCounter() {
+  var now = new Date();
+  var diff = now - startDate;
+  var days = Math.floor(diff / (1000 * 60 * 60 * 24));
+
+  document.getElementById("counter").innerHTML =
+  "عدينا " + days + " يوم سوا ❤️";
+}
+
+setInterval(updateCounter, 1000);
+
+// 💖 القلوب
+function startHearts() {
+  setInterval(() => {
+    var heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = "❤️";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = (Math.random() * 20 + 10) + "px";
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 5000);
+  }, 300);
+}
+
+</script>
+
+</body>
+</html>
